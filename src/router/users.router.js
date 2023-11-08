@@ -42,12 +42,12 @@ router.get(
 );
 
 router.get(
-  "/auth/github/callback",
+  "/github",
   passport.authenticate("github", {
     failureRedirect: "/",
   }),
   (req, res) => {
-    req.session.user = req.user.id;
+    req.session.user = req.user;
     res.redirect("/");
   }
 );
